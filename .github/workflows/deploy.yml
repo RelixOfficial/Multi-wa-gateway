@@ -34,7 +34,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "relixoffici-multi-wa-ga-63"
+          project: "relixoffici-multi-wa-ga-98"
           entrypoint: "src/index.ts"
           root: "."
           
