@@ -31,7 +31,7 @@ app.route("/session", createSessionController());
  */
 app.route("/message", createMessageController());
 
-const port = env.PORT;
+const port = process.env.PORT || env.PORT;
 
 serve(
   {
