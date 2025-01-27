@@ -29,12 +29,15 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "npm install"
+        run: "npm start"
+
+      - name: Build step
+        run: "deno run -A index.ts"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "relixoffici-multi-wa-ga-45"
+          project: "relixoffici-multi-wa-ga-34"
           entrypoint: "index.ts"
           root: "."
           
