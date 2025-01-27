@@ -31,14 +31,11 @@ jobs:
       - name: Install step
         run: "npm install"
 
-      - name: Build step
-        run: "deno task build start"
-
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "relixoffici-multi-wa-ga-18"
-          entrypoint: "index.ts"
-          root: "."
+          entrypoint: "src/index.ts"
+          root: ""
           
           
