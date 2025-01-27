@@ -3,8 +3,8 @@
   "version": "4.0.0",
   "scripts": {
     "build": "tsc",
-    "dev": "tsx watch ./src/index.ts",
-    "start": "tsx ./src/index.ts"
+    "dev": "tsx watch ./src/main.ts",
+    "start": "tsx ./src/main.ts"
   },
   "author": {
     "name": "mimamch",
