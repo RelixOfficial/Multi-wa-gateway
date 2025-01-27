@@ -2,13 +2,13 @@ import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { cors } from "hono/cors";
 import moment from "moment";
-import { globalErrorMiddleware } from "./middlewares/error.middleware.ts";
-import { notFoundMiddleware } from "./middlewares/notfound.middleware.ts";
+import { globalErrorMiddleware } from "./src/middlewares/error.middleware.ts";
+import { notFoundMiddleware } from "./src/middlewares/notfound.middleware.ts";
 import { serve } from "@hono/node-server";
-import { env } from "./env";
-import { createSessionController } from "./controllers/session";
+import { env } from "./src/env.ts";
+import { createSessionController } from "./src/controllers/session.ts";
 import * as whastapp from "wa-multi-session";
-import { createMessageController } from "./controllers/message";
+import { createMessageController } from "./src/controllers/message.ts";
 
 const app = new Hono();
 
