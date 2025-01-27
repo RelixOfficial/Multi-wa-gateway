@@ -36,6 +36,6 @@ jobs:
         with:
           project: "relixoffici-multi-wa-ga-18"
           entrypoint: "src/index.ts"
-          root: ""
+          root: "."
           
           
