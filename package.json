@@ -2,8 +2,9 @@
   "name": "wa-gateway",
   "version": "4.0.0",
   "scripts": {
-    "dev": "tsx watch index.ts",
-    "start": "tsx index.ts"
+    "build": "tsc",
+    "dev": "tsx watch ./src/index.ts",
+    "start": "tsx ./src/index.ts"
   },
   "author": {
     "name": "mimamch",
