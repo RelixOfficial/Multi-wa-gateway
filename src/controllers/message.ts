@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import { createKeyMiddleware } from "../middlewares/key.middleware";
-import { customValidator } from "../middlewares/validation.middleware";
+import { createKeyMiddleware } from "../middlewares/key.middleware.ts";
+import { customValidator } from "../middlewares/validation.middleware.ts";
 import { z } from "zod";
 import * as whatsapp from "wa-multi-session";
 import { HTTPException } from "hono/http-exception";
