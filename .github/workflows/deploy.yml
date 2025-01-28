@@ -31,6 +31,9 @@ jobs:
       - name: Install step
         run: "npm install"
 
+      - name: Build step
+        run: "deno run --allow-all src/main.ts"
+
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
