@@ -24,6 +24,7 @@ jobs:
 
     - name: Build
       run: |
-        pnpm install -D webpack-cli
+        npm audit fix --force
+        npm install -D webpack-cli
         npm install
         npx webpack
