@@ -7,35 +7,32 @@ import { notFoundMiddleware } from "./middlewares/notfound.middleware.ts";
 import { serve } from "@hono/node-server";
 import { env } from "./env.ts";
 import { createSessionController } from "./controllers/session.ts";
-import * as whatsapp from "wa-multi-session";
+import * as whastapp from "wa-multi-session";
 import { createMessageController } from "./controllers/message.ts";
 
 const app = new Hono();
 
-// Logging Middleware
-app.use("*", logger((message) => console.log(`${moment().toISOString()} | ${message}`)));
+app.use(
+  logger((...params) => {
+    params.map((e) => console.log(`${moment().toISOString()} | ${e}`));
+  })
+);
+app.use(cors());
 
-// Enable CORS
-app.use("*", cors());
-
-// Global Error Handling
 app.onError(globalErrorMiddleware);
-
-// 404 Not Found Middleware
 app.notFound(notFoundMiddleware);
 
 /**
- * Session Routes
+ * session routes
  */
 app.route("/session", createSessionController());
-
 /**
- * Message Routes
+ * message routes
  */
 app.route("/message", createMessageController());
 
-// Start the server
-const port = env.PORT || 3000; // Fallback ke port 3000 jika `env.PORT` tidak tersedia
+const port = env.PORT;
+
 serve(
   {
     fetch: app.fetch,
@@ -46,17 +43,8 @@ serve(
   }
 );
 
-// WhatsApp Event Handlers
-whatsapp.onConnected((session) => {
-  console.log(`Session '${session}' connected`);
+whastapp.onConnected((session) => {
+  console.log(`session: '${session}' connected`);
 });
 
-// Load WhatsApp Sessions
-(async () => {
-  try {
-    await whatsapp.loadSessionsFromStorage();
-    console.log("All sessions loaded successfully");
-  } catch (error) {
-    console.error("Failed to load sessions:", error);
-  }
-})();
+whastapp.loadSessionsFromStorage();
